@@ -4,19 +4,19 @@ const Weather = (props) => {
   return (
     <div className="weather-info">
       {
-        props.country && props.city && <p className="weather__key">Location: <span className="weather__value">{props.city}, {props.country}</span></p>
+        props.country && props.city &&<div className="location">{props.city}, {props.country}</div>
       }
       {
-        props.temperature && <p className="weather__key">Temperature: <span className="weather__value">{props.temperature - 273.15}°C</span></p>
+        props.temperature && <div className="temp">{ Math.floor(props.temperature - 273.15) }°C</div>
       }
       {
-        props.humidity && <p className="weather__key">Humidity: <span className="weather__value">{props.humidity}</span></p>
+        props.humidity && <p className="weather__key">Humidity: <div className="weather__value">{props.humidity}</div></p>
       }
       {
-        props.description && <p className="weather__key">Conditions: <span className="weather__value">{props.description}</span></p>
+        props.description && <p className="weather__key">Conditions: <div className="weather__value">{props.description}</div></p>
       }
       {
-        props.error && <p className="weather__key"><span className="weather__value">{props.error}</span></p>
+        props.error && <p className="weather__key"><div className="weather__value">{props.error}</div></p>
       }
     </div>
   )
