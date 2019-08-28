@@ -1,7 +1,5 @@
 const { app, BrowserWindow } = require('electron')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
 let win
 
 function createWindow () {
@@ -14,12 +12,12 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // and load the url of the React app.
 	win.loadURL('http://localhost:3000/')
 
 
   // Open the DevTools.
-  win.webContents.openDevTools()
+  // win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on('closed', () => {
@@ -51,6 +49,3 @@ app.on('activate', () => {
     createWindow()
   }
 })
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
