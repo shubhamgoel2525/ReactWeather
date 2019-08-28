@@ -6,6 +6,8 @@ npm start
 # This will start the electron app
 npm run electron-start
 
+<b>NOTE:</b> Required Electron version is 6.0.5. Run 'npm install' before the above command.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
