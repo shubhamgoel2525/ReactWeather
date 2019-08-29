@@ -9,7 +9,11 @@ function createWindow () {
     height: 600,
     webPreferences: {
       nodeIntegration: true
-    }
+    },
+
+    // To create borderless design
+    titleBarStyle: 'hiddenInset',
+    frame: false 
   })
 
   // and load the url of the React app.

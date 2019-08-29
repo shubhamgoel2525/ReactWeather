@@ -5,6 +5,7 @@
 
 body {
   font-family: "Open Sans", serif;
+  -webkit-app-region: drag;
 }
 
 .wrapper {
