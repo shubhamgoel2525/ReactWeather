@@ -10,6 +10,8 @@ Runs React app
 
 ### `npm run electron-start`
 
+<b>NOTE:</b> Required Electron version is 6.0.5. Run 'npm install' before the above command.
+
 This will start the electron app
 
 ## Available Scripts
