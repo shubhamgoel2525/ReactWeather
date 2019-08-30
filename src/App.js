@@ -17,9 +17,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="wrapper">
-          <div className="app-container container-fluid">
+      <div className="bg">
+          <div className="container-fluid app-container">
             <Titles />
             <Form loadWeather={this.getWeather} />
             <Weather
@@ -30,7 +29,6 @@ class App extends React.Component {
               description={this.state.description}
               error={this.state.error}
             />
-          </div>
         </div>
       </div>
     );
