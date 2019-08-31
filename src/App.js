@@ -18,11 +18,12 @@ class App extends React.Component {
   };
 
   componentDidMount() {
+    var random = Math.floor(Math.random() * 10);
     fetch(`https://api.unsplash.com/search/photos/?query=${query}&client_id=${unsplash_key}`)
     .then(res => res.json())
     .then(data => {
       var backimage = document.getElementsByClassName("app-container");
-      backimage[0].style.backgroundImage = `url(${data.results[0].urls.regular})`;
+      backimage[0].style.backgroundImage = `url(${data.results[random].urls.regular})`;
     });
   }
 
