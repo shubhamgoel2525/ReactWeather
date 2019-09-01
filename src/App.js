@@ -56,13 +56,14 @@ class App extends React.Component {
       backimage[0].style.backgroundImage = `url(${data.results[random].urls.regular})`;
     });
     //Conditional check for both fields
+    var weatherDescrip = response.weather[0].description;
     if (city && country) {
       this.setState({
         temperature: response.main.temp,
         city: response.name,
         country: response.sys.country,
         humidity: response.main.humidity,
-        description: response.weather[0].description.charAt(0).toUpperCase() + response.weather[0].description.slice(1),
+        description: weatherDescrip.charAt(0).toUpperCase() + weatherDescrip.slice(1),
         error: ""
       });
     } else {
