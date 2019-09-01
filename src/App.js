@@ -48,6 +48,7 @@ const App = () => {
     );
     const response = await api_call.json();
     //Conditional check for both fields
+    var weatherDescrip = response.weather[0].description;
     if (city && country) {
       setInfo({
         temperature: response.main.temp,
