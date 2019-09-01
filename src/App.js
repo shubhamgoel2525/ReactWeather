@@ -5,7 +5,6 @@ import Weather from "./components/weather";
 
 var Api_Key = "337d351936e39e0032a988f267614961";
 var unsplash_key = "1b1c5e55468e9f256075cf1086af0d2b991b94090494ffba7777f4a4e71a4b65";
-var query = "nature";
 
 class App extends React.Component {
   state = {
@@ -46,7 +45,7 @@ class App extends React.Component {
     );
     const response = await api_call.json();
     console.log(response);
-    query = response.description;
+    var query = response.weather[0].description;
     console.log(query);
     var random = Math.floor(Math.random() * 4);
     fetch(`https://api.unsplash.com/search/photos/?query=${query}&client_id=${unsplash_key}`)
@@ -63,7 +62,7 @@ class App extends React.Component {
         city: response.name,
         country: response.sys.country,
         humidity: response.main.humidity,
-        description: response.weather[0].description,
+        description: response.weather[0].description.charAt(0).toUpperCase() + response.weather[0].description.slice(1),
         error: ""
       });
     } else {
