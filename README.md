@@ -18,6 +18,10 @@ This will start the electron app
 
 In the project directory, you can run:
 
+### `npm install`
+
+This will install all the required dependencies.
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
