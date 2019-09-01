@@ -20,13 +20,14 @@ const App = () => {
   var query = "nature";
 
   useEffect(() => {
-    var random = Math.floor(Math.random() * 10);
+    var random = Math.floor(Math.random() * 4);
 
     fetch(
       `https://api.unsplash.com/search/photos/?query=${query}&client_id=${unsplash_key}`,
     )
       .then((res) => res.json())
       .then((data) => {
+        console.log(data); //Test the API
         var backimage = document.getElementsByClassName("app-container");
         backimage[0].style.backgroundImage = `url(${data.results[random].urls.regular})`;
       });
@@ -42,7 +43,6 @@ const App = () => {
       `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${process.env.REACT_APP_API_KEY}`,
     );
     const response = await api_call.json();
-
     //Conditional check for both fields
     if (city && country) {
       setInfo({
