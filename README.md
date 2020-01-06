@@ -1,5 +1,5 @@
 # ReactWeather
-A simple react app that fetches city weather updates using DarkSky API.
+A simple react app that fetches city weather updates using OpenWeatherMap API.
 
 ## Run
 
