@@ -29,6 +29,7 @@ body {
   background-position: center;
   background-size: cover;
   transition: max-height 0.25s ease-in;
+  overflow: scroll;
 }
 
 .title-container__title {
@@ -139,4 +140,8 @@ button:active {
   font-size: 20px;
   letter-spacing: 1px;
   font-weight: 200;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
