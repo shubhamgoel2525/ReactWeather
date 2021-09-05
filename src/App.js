@@ -1,20 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Titles from "./components/titles";
 import Form from "./components/form";
 import Weather from "./components/weather";
 
-class App extends React.Component {
-  state = {
+const App = () => {
+  const [info, setInfo] = useState({ 
     temperature: undefined,
     city: undefined,
     country: undefined,
     humidity: undefined,
     description: undefined,
-    error: undefined
-  };
+    error: undefined,
+  });
 
-  getWeather = async e => {
+  const getWeather = async e => {
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
 
@@ -27,7 +27,7 @@ class App extends React.Component {
 
     //Conditional check for both fields
     if (city && country) {
-      this.setState({
+      setInfo({
         temperature: response.main.temp,
         city: response.name,
         country: response.sys.country,
@@ -36,34 +36,30 @@ class App extends React.Component {
         error: ""
       });
     } else {
-      this.setState({
-        error: "Please enter the values..."
-      });
+      setInfo({ ...info, error: "Please enter the values..." });
     }
   };
 
-  render() {
-    return (
-      <div>
-        <div className="wrapper">
-          <div className="app-container container-fluid">
-            <Titles />
+  return (
+    <div>
+      <div className="wrapper">
+        <div className="app-container container-fluid">
+          <Titles />
 
-            <Form loadWeather={this.getWeather} />
+          <Form loadWeather={getWeather} />
 
-            <Weather
-              temperature={this.state.temperature}
-              city={this.state.city}
-              country={this.state.country}
-              humidity={this.state.humidity}
-              description={this.state.description}
-              error={this.state.error}
-            />
-          </div>
+          <Weather
+            temperature={info.temperature}
+            city={info.city}
+            country={info.country}
+            humidity={info.humidity}
+            description={info.description}
+            error={info.error}
+          />
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default App;

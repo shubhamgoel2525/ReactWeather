@@ -1,30 +1,30 @@
 import React from 'react';
 
-const Weather = (props) => {
+const Weather = ({temperature, city, country, humidity, description, error}) => {
   return (
     <div>
         <div className="weather-info">
-          { props.country && props.city && <div className="location">{props.city}, {props.country}</div> }
+          { country && city && <div className="location">{city}, {country}</div> }
 
-          { props.temperature && <div className="temp">{ Math.floor(props.temperature - 273.15) }°C</div> }
+          { temperature && <div className="temp">{ Math.floor(temperature - 273.15) }°C</div> }
 
-          { props.humidity && (
+          { humidity && (
               <div className="weather__key">
-                Humidity: <p className="weather__value">{props.humidity}</p>
+                Humidity: <p className="weather__value">{humidity}</p>
               </div>
             ) 
           }
 
-          { props.description && (
+          { description && (
               <div className="weather__key">
-                Conditions: <p className="weather__value capitalize">{props.description}</p>
+                Conditions: <p className="weather__value capitalize">{description}</p>
               </div>
             ) 
           }
           
-          { props.error && (
+          { error && (
             <div className="weather__key">
-              <p className="weather__value">{props.error}</p>
+              <p className="weather__value">{error}</p>
             </div>
           )}
       </div>

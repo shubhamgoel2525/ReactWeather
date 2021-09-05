@@ -1,6 +1,6 @@
 import React from "react";
 
-const Titles = props => {
+const Titles = () => {
   return (
     <div>
       <h1 className="title-container__title">Weatheractor</h1>
