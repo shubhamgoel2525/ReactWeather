@@ -9,23 +9,23 @@ const Weather = (props) => {
           { props.temperature && <div className="temp">{ Math.floor(props.temperature - 273.15) }°C</div> }
 
           { props.humidity && (
-              <p className="weather__key">
-                Humidity: <div className="weather__value">{props.humidity}</div>
-              </p>
+              <div className="weather__key">
+                Humidity: <p className="weather__value">{props.humidity}</p>
+              </div>
             ) 
           }
 
           { props.description && (
-              <p className="weather__key">
-                Conditions: <div className="weather__value capitalize">{props.description}</div>
-              </p>
+              <div className="weather__key">
+                Conditions: <p className="weather__value capitalize">{props.description}</p>
+              </div>
             ) 
           }
           
           { props.error && (
-            <p className="weather__key">
-              <div className="weather__value">{props.error}</div>
-            </p>
+            <div className="weather__key">
+              <p className="weather__value">{props.error}</p>
+            </div>
           )}
       </div>
     </div>
