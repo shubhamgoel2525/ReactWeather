@@ -1,11 +1,15 @@
 import React from 'react';
-const Form = (props) => {
+
+const Form = ({ loadWeather }) => {
   return (
-    <form onSubmit={ props.loadWeather }>
+    <form onSubmit={loadWeather}>
       <input type="text" name="city" placeholder="City..." />
+
       <input type="text" name="country" placeholder="Country..." />
+
       <button className="btn-custom">Get Weather</button>
     </form>
   )
 }
+
 export default Form;

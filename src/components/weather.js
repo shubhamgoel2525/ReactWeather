@@ -1,23 +1,33 @@
 import React from 'react';
 
-const Weather = (props) => {
+const Weather = ({temperature, city, country, humidity, description, error}) => {
   return (
-    <div className="weather-info">
-      {
-        props.country && props.city &&<div className="location">{props.city}, {props.country}</div>
-      }
-      {
-        props.temperature && <div className="temp">{ Math.floor(props.temperature - 273.15) }°C</div>
-      }
-      {
-        props.humidity && <p className="weather__key">Humidity: <div className="weather__value">{props.humidity}</div></p>
-      }
-      {
-        props.description && <p className="weather__key">Conditions: <div className="weather__value">{props.description}</div></p>
-      }
-      {
-        props.error && <p className="weather__key"><div className="weather__value">{props.error}</div></p>
-      }
+    <div>
+        <div className="weather-info">
+          { country && city && <div className="location">{city}, {country}</div> }
+
+          { temperature && <div className="temp">{ Math.floor(temperature - 273.15) }°C</div> }
+
+          { humidity && (
+              <div className="weather__key">
+                Humidity: <p className="weather__value">{humidity}</p>
+              </div>
+            ) 
+          }
+
+          { description && (
+              <div className="weather__key">
+                Conditions: <p className="weather__value capitalize">{description}</p>
+              </div>
+            ) 
+          }
+          
+          { error && (
+            <div className="weather__key">
+              <p className="weather__value">{error}</p>
+            </div>
+          )}
+      </div>
     </div>
   )
 }
