@@ -4,7 +4,6 @@ import Titles from "./components/titles";
 import Form from "./components/form";
 import Weather from "./components/weather";
 
-var Api_Key = "337d351936e39e0032a988f267614961";
 var unsplash_key =
   "1b1c5e55468e9f256075cf1086af0d2b991b94090494ffba7777f4a4e71a4b65";
 
