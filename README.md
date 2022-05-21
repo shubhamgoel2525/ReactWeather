@@ -1,7 +1,23 @@
 # ReactWeather
 A simple react app that fetches city weather updates using OpenWeatherMap API.
 
-## Run
+## To run electron app
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs React app
+
+### `npm run electron-start`
+
+<b>NOTE:</b> Required Electron version is 6.0.5. Run 'npm install' before the above command.
+
+This will start the electron app
+
+## Available Scripts
+
+In the project directory, you can run:
 
 ### `npm install`
 
