@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Titles from "./components/titles";
 import Form from "./components/form";
 import Weather from "./components/weather";
 
+var unsplash_key =
+  "1b1c5e55468e9f256075cf1086af0d2b991b94090494ffba7777f4a4e71a4b65";
+
 const App = () => {
-  const [info, setInfo] = useState({ 
+  const [info, setInfo] = useState({
     temperature: undefined,
     city: undefined,
     country: undefined,
@@ -14,18 +17,37 @@ const App = () => {
     error: undefined,
   });
 
-  const getWeather = async e => {
+  var Api_Key = "337d351936e39e0032a988f267614961";
+  var unsplash_key =
+    "1b1c5e55468e9f256075cf1086af0d2b991b94090494ffba7777f4a4e71a4b65";
+  var query = "nature";
+
+  useEffect(() => {
+    var random = Math.floor(Math.random() * 4);
+
+    fetch(
+      `https://api.unsplash.com/search/photos/?query=${query}&client_id=${unsplash_key}`,
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data); //Test the API
+        var backimage = document.getElementsByClassName("app-container");
+        backimage[0].style.backgroundImage = `url(${data.results[random].urls.regular})`;
+      });
+  }, [query, unsplash_key]);
+
+  const getWeather = async (e) => {
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
 
     e.preventDefault();
 
     const api_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${process.env.REACT_APP_API_KEY}`
+      `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${process.env.REACT_APP_API_KEY}`,
     );
     const response = await api_call.json();
-
     //Conditional check for both fields
+    var weatherDescrip = response.weather[0].description;
     if (city && country) {
       setInfo({
         temperature: response.main.temp,
@@ -33,7 +55,7 @@ const App = () => {
         country: response.sys.country,
         humidity: response.main.humidity,
         description: response.weather[0].description,
-        error: ""
+        error: "",
       });
     } else {
       setInfo({ ...info, error: "Please enter the values..." });
